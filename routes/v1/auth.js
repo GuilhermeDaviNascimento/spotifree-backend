@@ -25,6 +25,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
     const { email, password, name } = req.body;
+    const { cep, logradouro, complemento, numero, bairro, municipio, uf } = req.body;
 
     const existingUser = await User.findOne({ where: { email: email } });
     if (existingUser) {
@@ -35,7 +36,8 @@ router.post('/register', async (req, res) => {
         const newUser = await User.create({
             email: email,
             password: hashedPassword,
-            name: name
+            name: name,
+            cep, logradouro, complemento, numero, bairro, municipio, uf
         });
         const token = jwt.sign({ email: newUser.email }, process.env.SECRET, { expiresIn: '1h' });
 
