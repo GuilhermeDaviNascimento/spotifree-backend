@@ -1,21 +1,24 @@
 {
   "name": "tepi-backend-crud",
+  "description": "Spotifree Backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node swagger.js"
+    "start": "node swagger && node .",
+    "dev": "node swagger && node --watch .",
+    "docs": "node swagger"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.11.4",
-    "sequelize": "^6.37.5",
+    "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
   }
