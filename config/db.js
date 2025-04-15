@@ -1,11 +1,13 @@
 const { Sequelize } = require("sequelize");
 
 let db_config = [];
+const LOGGING = false
 
 if (process.env.DB_DIALECT === "sqlite") {
   db_config = [{
     dialect: process.env.DB_DIALECT,
-    storage: process.env.DB_STORAGE
+    storage: process.env.DB_STORAGE,
+    logging: LOGGING
   }]
 }
 else {
@@ -17,7 +19,7 @@ else {
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
       dialect: process.env.DB_DIALECT,
-      logging: false
+      logging: LOGGING
     }
   ];
 }
