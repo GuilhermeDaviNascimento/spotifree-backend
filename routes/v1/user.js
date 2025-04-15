@@ -1,4 +1,4 @@
-const { User } = require("../models/index");
+const { User } = require('../../models/index')
 const express = require("express");
 const bcrypt = require("bcrypt"); // Importando o bcrypt
 const router = express.Router();

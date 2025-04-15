@@ -1,4 +1,4 @@
-const { Music } = require("../models/index");
+const { Music } = require("../../models/index");
 const express = require("express");
 const router = express.Router(); // Instanciar o Router
 

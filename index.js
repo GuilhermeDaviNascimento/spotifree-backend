@@ -8,8 +8,8 @@ const app = express();
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./swagger-output.json');
 
-// Middleware para JSON
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // ----------------------------- ROUTES -------------------------------
 

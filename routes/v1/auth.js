@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { User } = require("../models/index");
+const { User } = require("../../models/index");
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ where: { email: email } });
-    
+
     if (user) {
         if (await bcrypt.compare(password, user.password)) {
             const token = jwt.sign({ email: user.email }, process.env.SECRET, { expiresIn: '1h' });

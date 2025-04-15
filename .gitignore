@@ -21,6 +21,9 @@ coverage/
 .env
 .env.*.local
 
+# Banco de dados
+database.sqlite
+
 # Diretórios do sistema operacional
 .DS_Store
 Thumbs.db
