@@ -11,6 +11,9 @@ const swaggerFile = require('./swagger-output.json');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+const cors = require('cors')
+app.use(cors())
 // ----------------------------- ROUTES -------------------------------
 
 app.use('/api/v1/', require('./routes/router_v1'));

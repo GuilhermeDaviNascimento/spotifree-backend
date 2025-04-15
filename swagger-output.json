@@ -363,13 +363,16 @@
             "schema": {
               "type": "object",
               "properties": {
+                "name": {
+                  "example": "any"
+                },
                 "email": {
                   "example": "any"
                 },
                 "password": {
                   "example": "any"
                 },
-                "name": {
+                "confirmPassword": {
                   "example": "any"
                 },
                 "cep": {
