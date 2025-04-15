@@ -24,13 +24,18 @@ router.post('/login', async (req, res) => {
 
 
 router.post('/register', async (req, res) => {
-    const { email, password, name } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
     const { cep, logradouro, complemento, numero, bairro, municipio, uf } = req.body;
 
     const existingUser = await User.findOne({ where: { email: email } });
     if (existingUser) {
         return res.status(400).json({ error: "Email já está em uso." });
     }
+
+    if (password !== confirmPassword) {
+        return res.status(400).json({ error: "As senhas não coincidem." });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     try {
         const newUser = await User.create({
